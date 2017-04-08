@@ -1,34 +1,32 @@
 package sample;
 
+
 import javafx.application.Application;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
 
+
 public class Main extends Application {
-
-
 
 
     public static void main(String[] args) {
         launch(args);
     }
 
-
+Alert alert;
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("Ekran logowania");
-
 
         primaryStage.show();
 
@@ -58,8 +56,17 @@ public class Main extends Application {
 
         Button ok = new Button("Press me");
         grid.add(ok,1,3);
+        ok.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("halo halo");
+                alert.showAndWait();
+            }
+        });
 
     }
+
 
 
 
