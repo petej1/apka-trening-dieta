@@ -1,4 +1,4 @@
-package sample;
+package App;
 
 
 import javafx.application.Application;
@@ -23,9 +23,15 @@ public class Main extends Application {
         launch(args);
     }
 
-Alert alert;
+    Alert alert;
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
+
+
+        DBConnect connect = new DBConnect();
+        connect.getData();
+        /*
         primaryStage.setTitle("Ekran logowania");
 
         primaryStage.show();
@@ -67,7 +73,8 @@ Alert alert;
 
     }
 
+*/
 
-
-
+    }
 }
+
