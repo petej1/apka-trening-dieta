@@ -18,7 +18,7 @@ public class DBConnect {
         try{
 Class.forName("com.mysql.jdbc.Driver");
 
-conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/PeopleAndResults","root","");
 st = conn.createStatement();
 
         }catch (Exception ex){
@@ -28,14 +28,18 @@ st = conn.createStatement();
 
     public void getData(){
         try {
-            String query = "select * from persons";
+            String query = "select * from people";
             rs = st.executeQuery(query);
             System.out.println("Records from database: " );
             while (rs.next()){
-                String name = rs.getString("name");
-                String age = rs.getString("age");
+                String name = rs.getString("Name");
+                String surname = rs.getString("Surname");
+                String age = rs.getString("Age");
+                String sex = rs.getString("Sex");
                 System.out.println("name" + name);
+                System.out.println("surname" + surname);
                 System.out.println("age" + age);
+                System.out.println("sex" + sex);
             }
 
         }catch (Exception ex){
