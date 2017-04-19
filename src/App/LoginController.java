@@ -16,10 +16,14 @@ public class LoginController extends Application{
         launch(args);
     }
 
+    private Stage stage;
     Alert alert;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        stage = primaryStage;
 
         DBConnect connect = new DBConnect();
         connect.getData();
@@ -57,13 +61,56 @@ public class LoginController extends Application{
         ok.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("halo halo");
-                alert.showAndWait();
+
+                GridPane grid1 = new GridPane();
+                grid1.setAlignment(Pos.CENTER);
+                grid1.setHgap(10);
+                grid1.setVgap(10);
+                grid1.setPadding(new Insets(25, 25, 25, 25));
+
+
+                Button cal = new Button("Kalkulator twojego zdrowia");
+                Button food = new Button("Przykładowe dania");
+                grid1.add(cal,1,2);
+                grid1.add(food,1,3);
+
+                Scene scene = new Scene(grid1, 400, 275);
+                primaryStage.setTitle("Menu");
+                primaryStage.setScene(scene);
+
+                cal.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        GridPane grid1 = new GridPane();
+                        grid1.setAlignment(Pos.CENTER);
+                        grid1.setHgap(50);
+                        grid1.setVgap(10);
+
+
+                        Button cal = new Button("BMI");
+                        Button food = new Button("COS");
+                        Button food1 = new Button("COS");
+                        Button food2 = new Button("COS");
+                        Button food3= new Button("COS");
+                        grid1.add(cal,0,1);
+                        grid1.add(food,1,1);
+                        grid1.add(food1,2,1);
+                        grid1.add(food2,0,2);
+                        grid1.add(food3,1,2);
+
+
+                        Scene scene = new Scene(grid1, 400, 275);
+                        primaryStage.setTitle("Kalkulator");
+                        primaryStage.setScene(scene);
+
+
+                    }
+                });
+
             }
         });
 
     }
-    }
+}
 
 
